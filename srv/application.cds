@@ -8,3 +8,10 @@ service RequestService {
     entity MaterialTypeSet as projection on db.MaterialType;
 }
 
+
+service ApproverService{
+    
+    entity FocalPointSet as projection on db.FocalPoint;
+    entity ExpertiseHolderSet as projection on db.ExpertiseHolder;
+    entity StandardClassSet as projection on db.StandardClassT;
+}

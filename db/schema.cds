@@ -28,3 +28,23 @@ entity MaterialType : managed {
     key Code     : String;
         TypeName : String;
 }
+
+
+entity FocalPoint : managed {
+    key userEmail:String;
+    key StandardClass :Association to  StandardClassT;
+
+}
+
+entity ExpertiseHolder : managed {
+    key userEmail:String;
+    key StandardClass :Association to  StandardClassT;
+    
+}
+
+entity StandardClassT : managed {
+    key StdClass : String;
+    Description:String;
+    _ExpertiseHolder:Association to many ExpertiseHolder on _ExpertiseHolder.StandardClass = $self;
+    // _FocalPoint : Association to many FocalPoint;
+}
