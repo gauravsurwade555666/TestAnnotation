@@ -46,5 +46,5 @@ entity StandardClassT : managed {
     key StdClass : String;
     Description:String;
     _ExpertiseHolder:Association to many ExpertiseHolder on _ExpertiseHolder.StandardClass = $self;
-    // _FocalPoint : Association to many FocalPoint;
+    _FocalPoint : Association to many FocalPoint on _FocalPoint.StandardClass = $self;
 }
