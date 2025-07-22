@@ -17,10 +17,10 @@ entity Requests : managed {
 
 entity Material : managed {
     key RequestNumber        : UUID;
-    key Index                : Integer @Core.Computed ;
+    key Index                : Integer ;
         MaterialDescritption : String(40);
         MaterialLongText     : String(40);
-        Type                 : Association to MaterialType;
+        Type                 : String;
 
 }
 
@@ -31,20 +31,25 @@ entity MaterialType : managed {
 
 
 entity FocalPoint : managed {
-    key userEmail:String;
-    key StandardClass :Association to  StandardClassT;
+    key userEmail     : String;
+    key StandardClass : Association to StandardClassT;
 
 }
 
 entity ExpertiseHolder : managed {
-    key userEmail:String;
-    key StandardClass :Association to  StandardClassT;
-    
+    key userEmail     : String;
+    key StandardClass : Association to StandardClassT;
+
 }
 
 entity StandardClassT : managed {
-    key StdClass : String;
-    Description:String;
-    _ExpertiseHolder:Association to many ExpertiseHolder on _ExpertiseHolder.StandardClass = $self;
-    _FocalPoint : Association to many FocalPoint on _FocalPoint.StandardClass = $self;
+    key StdClass         : String;
+        Description      : String;
+        _ExpertiseHolder : Association to many ExpertiseHolder
+                               on _ExpertiseHolder.StandardClass = $self;
+        _FocalPoint      : Association to many FocalPoint
+                               on _FocalPoint.StandardClass = $self;
 }
+
+
+
